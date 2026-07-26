@@ -27,29 +27,29 @@ class Settings(BaseSettings):
         extra="ignore",
     )
     # -------------------------
-# Application
-# -------------------------
-app_name: str = "Contextify"
-app_env: Literal["local", "development", "production"] = "local"
-log_level: str = "INFO"
+    # Application
+    # -------------------------
+    app_name: str = "Contextify"
+    app_env: Literal["local", "development", "production"] = "local"
+    log_level: str = "INFO"
 
-# -------------------------
-# Gemini
-# -------------------------
-gemini_api_key: str | None = None
-gemini_model: str | None = None
+    # -------------------------
+    # Gemini
+    # -------------------------
+    gemini_api_key: str | None = None
+    gemini_model: str | None = None
 
-# -------------------------
-# Embeddings
-# -------------------------
-embedding_model: str | None = None
-hf_api_key: str | None = None
+    # -------------------------
+    # Embeddings
+    # -------------------------
+    embedding_model: str | None = None
+    hf_api_key: str | None = None
 
-# -------------------------
-# Qdrant
-# -------------------------
-qdrant_url: str | None = None
-qdrant_api_key: str | None = None
-qdrant_collection: str | None = None
+    # -------------------------
+    # Qdrant
+    # -------------------------
+    qdrant_url: str | None = None
+    qdrant_api_key: str | None = None
+    qdrant_collection: str | None = None
 
 settings = Settings()
