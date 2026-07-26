@@ -1,0 +1,63 @@
+.env
+.venv# -----------------------
+# Python
+# -----------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Local database (if ever used)
+*.db
+*.sqlite3
+
+# Temporary files
+temp/
+tmp/
+
+# Qdrant local storage (future-proof)
+qdrant_storage/
+
+# Node (Chrome Extension)
+node_modules/
+
+# Misc
+*.swp
+*.bak
