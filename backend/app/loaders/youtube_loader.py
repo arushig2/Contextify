@@ -37,8 +37,12 @@ class YouTubeLoader(BaseLoader):
     @staticmethod
     def _get_transcript(video_id: str) -> str:
         try:
-            transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=["en"])
-            transcript = " ".join(chunk["text"] for chunk in transcript_list)
+            logger.info(f"Fetching transcript for {video_id}")
+
+            api = YouTubeTranscriptApi()
+            transcript_list = api.fetch(video_id=video_id, languages=["en"])
+            transcript = " ".join(chunk.text for chunk in transcript_list)
+            
             if not transcript.strip():
                 raise ValueError("Transcript is empty.")
             return transcript
