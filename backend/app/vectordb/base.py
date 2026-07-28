@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from langchain_core.documents import Document
+from ..models.vector_search_result import VectorSearchResult
 
 
 class BaseVectorDB(ABC):
@@ -13,7 +14,7 @@ class BaseVectorDB(ABC):
         pass
 
     @abstractmethod
-    def search(self, query_embedding: list[float], k: int = 5) -> list[Document]:
+    def search(self, query_embedding: list[float], k: int = 5) -> list[VectorSearchResult]:
         pass
 
     @abstractmethod

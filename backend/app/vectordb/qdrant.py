@@ -4,6 +4,7 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 from ..core.config import settings
 from .base import BaseVectorDB
+from ..models.vector_search_result import VectorSearchResult
 
 
 class QdrantVectorDB(BaseVectorDB):
@@ -56,33 +57,39 @@ class QdrantVectorDB(BaseVectorDB):
             raise RuntimeError("Error occurred while adding documents.") from e
         
 
-    def search(self, query_embedding: list[float], k: int = 5) -> list[Document]:
+    def search(self, query_embedding: list[float], k: int = 5) -> list[VectorSearchResult]:
         try:
             results = self._client.query_points(
                 collection_name=self._collection_name,
                 query=query_embedding,
                 limit=k,
+                with_vectors=True
             )
 
-            documents: list[Document] = []
+            search_results: list[VectorSearchResult] = []
 
             for point in results.points:
+
                 payload = point.payload
 
-                documents.append(
-                    Document(
-                        page_content=payload["text"],
-                        metadata={
-                                **{key: value
-                                for key, value in payload.items()
-                                if key != "text"
-                            },
-                            "_score":point.score
-                        }
+                document = Document(
+                    page_content=payload["text"],
+                    metadata={
+                        key: value
+                        for key, value in payload.items()
+                        if key != "text"
+                    }
+                )
+
+                search_results.append(
+                    VectorSearchResult(
+                        document=document,
+                        score=point.score,
+                        embedding=point.vector,
                     )
                 )
 
-            return documents
+            return search_results
 
         except Exception as e:
             raise RuntimeError("Error occurred while searching the collection.") from e
