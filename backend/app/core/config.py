@@ -36,7 +36,7 @@ class Settings(BaseSettings):
     # -------------------------
     # Gemini
     # -------------------------
-    gemini_api_key: str | None = None
+    google_api_key: str | None = None
     gemini_model: str | None = None
 
     # -------------------------

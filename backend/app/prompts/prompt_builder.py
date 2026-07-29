@@ -1,4 +1,5 @@
 from langchain_core.documents import Document
+from langchain_core.prompt_values import ChatPromptValue
 from .rag_prompt import RAG_PROMPT
 
 class PromptBuilder:
@@ -20,7 +21,7 @@ class PromptBuilder:
 
         return "\n\n---\n\n".join(sections)
 
-    def build_prompt(self, documents: list[Document], question: str):
+    def build_prompt(self, documents: list[Document], question: str) -> ChatPromptValue:
         """Formats retrieved documents into a prompt for the LLM."""
         context = self.build_context(documents)
 
