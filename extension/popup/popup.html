@@ -1,67 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contextify</title>
     <link rel="stylesheet" href="popup.css">
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h2>Contextify</h2>
+        <header>
+            <h1>🧠 Contextify</h1>
+            <p>Your AI Knowledge Assistant</p>
+        </header>
 
-    <div>
-        <strong>Current Page</strong>
-        <p id="page-url">Loading...</p>
-    </div>
+        <div class="card">
 
-    <div>
-        <strong>Source Type</strong>
-        <p id="source-type">Detecting...</p>
-    </div>
+            <h3>Current Page</h3>
 
-    <button id="ingest-btn">
-        Add to Knowledge Base
-    </button>
+            <p id="page-url">Loading...</p>
+            
+            <div class="source-badge" id="source-type">
+                Detecting...
+            </div>
 
-    <p id="status"></p>
+            <button id="ingest-btn">
+                Add to Knowledge Base
+            </button>
 
-    <hr>
+            <p id="status"></p>
 
-        <div class="query-section">
+        </div>
+
+        <div class="card">
 
             <h3>Ask a Question</h3>
 
             <textarea
                 id="question"
                 rows="3"
-                placeholder="Ask something about your knowledge base..."
+                placeholder="Ask something..."
             ></textarea>
 
             <button id="query-btn">
                 Ask
             </button>
 
+            <p id="query-status"></p>
+
         </div>
 
-    <hr>
+        <div class="card">
 
-    <div class="answer-section">
+            <div class="answer-header">
 
-        <h3>Answer</h3>
+                <h3>Answer</h3>
 
-        <div id="answer">
+                <button id="copy-btn">
+                    📋 Copy
+                </button>
+
+            </div>
+
+            <div id="answer">
+                No answer yet.
+            </div>
+
+            <hr class="answer-divider">
+
+            <div id="citations">
+            </div>
 
         </div>
 
     </div>
 
-</div>
-
-<script type="module" src="popup.js"></script>
+    <script type="module" src="popup.js"></script>
 
 </body>
+
 </html>

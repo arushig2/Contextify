@@ -15,7 +15,12 @@ class RAGChain:
         self.prompt_builder = prompt_builder
         self.llm = llm
 
-    def invoke(self, query: str, k: int = 5) -> str:
+    def invoke(self, query: str, k: int = 5) -> dict:
         documents = self.retriever.retrieve(query, k)
         prompt = self.prompt_builder.build_prompt(documents, query)
-        return self.llm.generate(prompt)
+        answer = self.llm.generate(prompt)
+
+        return {
+            "answer": answer,
+            "documents": documents,
+        }
