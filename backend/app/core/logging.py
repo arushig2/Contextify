@@ -25,4 +25,8 @@ def setup_logging():
         force=True # Ensures configuration overrides existing settings
     )
 
+    # Suppress verbose third-party HTTP logs
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
+
 setup_logging()

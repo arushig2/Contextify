@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 import uvicorn
 from .api.router import router 
+import logging
+import app.core.logging
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="Contextify",

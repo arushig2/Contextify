@@ -44,7 +44,8 @@ class Settings(BaseSettings):
     # -------------------------
     embedding_model: str | None = None
     hf_api_key: str | None = None
-
+    embedding_batch_size: int = 10
+    embedding_max_retries: int = 3
     # -------------------------
     # Qdrant
     # -------------------------

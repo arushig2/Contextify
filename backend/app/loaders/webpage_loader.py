@@ -1,6 +1,7 @@
 import logging
-from .base import BaseLoader
 from langchain_community.document_loaders import WebBaseLoader
+from langchain_core.documents import Document
+from .base import BaseLoader
 
 logger = logging.getLogger(__name__)
 
@@ -11,6 +12,12 @@ class WebPageLoader(BaseLoader):
             source_type="url",
         )
 
-    def load(self):
+    def load(self) -> list[Document]:
         loader = WebBaseLoader(self.source)
-        return loader.load()
+        documents = loader.load()
+
+        for document in documents:
+            document.metadata["source"] = self.source
+            document.metadata["source_type"] = "web"
+
+        return documents

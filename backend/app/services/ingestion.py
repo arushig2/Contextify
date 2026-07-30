@@ -38,7 +38,7 @@ class IngestionService:
         # 3. Generate embeddings
         vectors = self.embedding.embed_documents(chunks)
 
-        self.vector_db.create_collection(1024)
+        self.vector_db.create_collection(vector_size=len(vectors[0]))
 
         # 4. Store chunks + vectors in Qdrant
         self.vector_db.add_documents(
