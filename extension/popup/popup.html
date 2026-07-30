@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contextify</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Contextify</h2>
+
+    <div>
+        <strong>Current Page</strong>
+        <p id="page-url">Loading...</p>
+    </div>
+
+    <div>
+        <strong>Source Type</strong>
+        <p id="source-type">Detecting...</p>
+    </div>
+
+    <button id="ingest-btn">
+        Add to Knowledge Base
+    </button>
+
+    <p id="status"></p>
+
+    <hr>
+
+        <div class="query-section">
+
+            <h3>Ask a Question</h3>
+
+            <textarea
+                id="question"
+                rows="3"
+                placeholder="Ask something about your knowledge base..."
+            ></textarea>
+
+            <button id="query-btn">
+                Ask
+            </button>
+
+        </div>
+
+    <hr>
+
+    <div class="answer-section">
+
+        <h3>Answer</h3>
+
+        <div id="answer">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="popup.js"></script>
+
+</body>
+</html>

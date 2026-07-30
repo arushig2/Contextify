@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 320px;
+    font-family: Arial, sans-serif;
+    padding: 16px;
+    background-color: #f8f9fa;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #222;
+}
+
+#status {
+    font-size: 14px;
+    color: #666;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #4285f4;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #2d6cdf;
+}
+
+textarea {
+
+    width: 100%;
+
+    resize: none;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    border: 1px solid #ccc;
+
+    font-family: inherit;
+
+}
+
+#answer {
+
+    margin-top: 10px;
+
+    min-height: 100px;
+
+    white-space: pre-wrap;
+
+    line-height: 1.5;
+
+}
+
+hr {
+
+    margin: 16px 0;
+
+}
