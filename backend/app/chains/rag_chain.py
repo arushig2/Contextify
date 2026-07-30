@@ -1,6 +1,6 @@
-from ..retrievers.base import BaseRetriever
-from ..prompts.prompt_builder import PromptBuilder
-from ..llms.base import BaseLLM
+from app.retrievers.base import BaseRetriever
+from app.prompts.prompt_builder import PromptBuilder
+from app.llms.base import BaseLLM
 
 class RAGChain:
 
