@@ -46,7 +46,7 @@ class QdrantVectorDB(BaseVectorDB):
             ) from e
 
     def add_documents(self, documents: list[Document], embeddings: list[list[float]]) -> None:
-
+        logger.info("Uploading vectors to collection")
         points: list[PointStruct] = []
         if len(documents) != len(embeddings):
             raise ValueError("The number of documents must match the number of embeddings.")
@@ -116,6 +116,7 @@ class QdrantVectorDB(BaseVectorDB):
         
 
     def search(self, query_embedding: list[float], k: int = 5) -> list[VectorSearchResult]:
+        logger.info(f"Searching top-{k} documents")
         try:
             results = self._client.query_points(
                 collection_name=self._collection_name,

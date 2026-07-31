@@ -10,7 +10,8 @@ import {
 } from "./ui.js";
 import {
     saveQueryState,
-    loadQueryState
+    loadQueryState,
+    clearQueryState
 } from "./storage.js";
 
 let currentUrl = "";
@@ -55,6 +56,10 @@ async function initializePopup() {
     document
         .getElementById("copy-btn")
         .addEventListener("click", copyAnswer);
+
+    document
+        .getElementById("reset-btn")
+        .addEventListener("click", resetPopup);
 }
 
 async function ingestCurrentPage() {
@@ -168,4 +173,14 @@ function displayCitations(citations) {
 
         container.appendChild(link);
     });
+}
+
+async function resetPopup() {
+
+    document.getElementById("question").value = "";
+    displayAnswer("No answer yet.");
+    displayCitations([]);
+    updateQueryStatus("");
+    await clearQueryState();
+
 }

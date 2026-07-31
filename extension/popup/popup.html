@@ -7,71 +7,121 @@
     <title>Contextify</title>
     <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
 
     <div class="container">
 
-        <header>
-            <h1>🧠 Contextify</h1>
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <h1>Contextify</h1>
+            </div>
+
             <p>Your AI Knowledge Assistant</p>
         </header>
 
-        <div class="card">
 
-            <h3>Current Page</h3>
+        <!-- Current Page -->
+        <div class="card page-card">
 
-            <p id="page-url">Loading...</p>
-            
-            <div class="source-badge" id="source-type">
-                Detecting...
+            <div class="section-title">
+                <div class="section-icon">🌐</div>
+                <div>
+                    <h3>Current Page</h3>
+                    <span class="section-subtitle">Add this page to your knowledge base</span>
+                </div>
             </div>
 
-            <button id="ingest-btn">
-                Add to Knowledge Base
+            <div class="page-info">
+                <p id="page-url">Loading...</p>
+
+                <div class="source-badge" id="source-type">
+                    Detecting...
+                </div>
+            </div>
+
+            <button id="ingest-btn" class="primary-btn">
+                <span>＋</span>
+                <span>Add to Knowledge Base</span>
             </button>
 
             <p id="status"></p>
 
         </div>
 
-        <div class="card">
 
-            <h3>Ask a Question</h3>
+        <!-- Ask Question -->
+        <div class="card question-card">
 
-            <textarea
-                id="question"
-                rows="3"
-                placeholder="Ask something..."
-            ></textarea>
+            <div class="section-title">
+                <div class="section-icon">✨</div>
+                <div>
+                    <h3>Ask a Question</h3>
+                    <span class="section-subtitle">Ask about your saved knowledge</span>
+                </div>
+            </div>
 
-            <button id="query-btn">
-                Ask
+            <div class="input-wrapper">
+                <textarea
+                    id="question"
+                    rows="4"
+                    placeholder="What would you like to know?"
+                ></textarea>
+
+                <span class="input-hint">Contextify will search your knowledge base</span>
+            </div>
+
+            <button id="query-btn" class="primary-btn ask-btn">
+                <span>✦</span>
+                <span>Ask</span>
             </button>
 
             <p id="query-status"></p>
 
         </div>
 
-        <div class="card">
+
+        <!-- Answer -->
+        <div class="card answer-card">
 
             <div class="answer-header">
 
-                <h3>Answer</h3>
+                <div class="section-title answer-title">
+                    <div class="section-icon">💡</div>
+                    <div>
+                        <h3>Answer</h3>
+                        <span class="section-subtitle">AI-generated response</span>
+                    </div>
+                </div>
 
-                <button id="copy-btn">
-                    📋 Copy
-                </button>
+                <div class="answer-actions">
+                    <button id="copy-btn" class="secondary-btn" title="Copy answer">
+                        📋
+                    </button>
+
+                    <button id="reset-btn" class="secondary-btn" title="Reset">
+                        ↻
+                    </button>
+                </div>
 
             </div>
 
-            <div id="answer">
-                No answer yet.
+
+            <div id="answer" class="answer-content">
+                <div class="empty-answer">
+                    <div class="empty-icon">💬</div>
+                    <p>No answer yet.</p>
+                    <span>Ask a question above to get started.</span>
+                </div>
             </div>
+
 
             <hr class="answer-divider">
 
-            <div id="citations">
-            </div>
+
+            <div id="citations"></div>
 
         </div>
 

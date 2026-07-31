@@ -14,4 +14,5 @@ def query(request: QueryRequest):
     return QueryResponse(
         answer=result["answer"],
         citations=citations,
+        metrics=result["metrics"],
     )
