@@ -7,17 +7,17 @@ import app.core.logging
 
 logger = logging.getLogger(__name__)
 
+app = FastAPI(
+    title="Contextify",
+    version="1.0.0",
+)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
-)
-
-app = FastAPI(
-    title="Contextify",
-    version="1.0.0",
 )
 
 app.include_router(router)
