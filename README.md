@@ -171,6 +171,27 @@ Load the Chrome Extension in Developer Mode and connect it to the backend.
 
 ---
 
+## Live Backend
+
+The FastAPI backend is deployed on Render and can be accessed at:
+
+**Base URL:**  
+https://contextify-4nza.onrender.com
+
+### Available Endpoints
+
+```http
+GET  /health
+POST /ingest
+POST /query
+```
+
+Example:
+
+```text
+https://contextify-4nza.onrender.com/health
+```
+
 ## Design Goals
 
 - Modular architecture
